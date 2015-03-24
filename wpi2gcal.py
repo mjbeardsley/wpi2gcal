@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.7
 
 # -*- coding: utf-8 -*-
 """
@@ -16,7 +16,7 @@ import datetime as dt
 from oauth2client.client import flow_from_clientsecrets
 import webbrowser
 import httplib2
-from apiclient.discovery import build
+from googleapiclient.discovery import build
 
 def test_html_out(text):
     f = open('cal.html','w')
