@@ -45,7 +45,7 @@ pas = getpass.getpass(prompt='WPI Password: ')
 header = {'Referer':'https://bannerweb.wpi.edu/pls/prod/twbkwbis.P_WWWLogin'}
 loginurl = 'https://bannerweb.wpi.edu/pls/prod/twbkwbis.P_ValLogin'
 logindata = {'sid':usr,'PIN':pas}
-del pas
+del usr,pas
 r = requests.post(loginurl,headers=header,data=logindata)
 cookies = r.cookies
 r = requests.post(loginurl,headers=header,data=logindata,cookies=cookies)
@@ -331,21 +331,6 @@ calendar = {
     'summary': 'WPI Classes',
     'timeZone': 'America/New_York'
 }
-
-#f = open('calendarids','r+')
-#f.seek(0)
-#contents = f.read().split('\n')
-#contents.pop()
-#all_usr_calids = {contents_inner.split('\t')[0]:contents_inner.split('\t')[1] for contents_inner in contents}
-#if usr not in all_usr_calids.keys():
-#    created_calendar = service.calendars().insert(body=calendar).execute()
-#    current_calid = created_calendar['id']
-##    f.seek(0,2)
-#    f.writelines([usr,'\t',current_calid,'\n'])
-#else:
-#    current_calid = all_usr_calids[usr]
-#    service.calendars().delete(current_calid).execute()
-#f.close()
 
 created_calendar = service.calendars().insert(body=calendar).execute()
 current_calid = created_calendar['id']
