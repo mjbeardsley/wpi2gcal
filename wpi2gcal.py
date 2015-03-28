@@ -50,6 +50,7 @@ r = requests.post(loginurl,headers=header,data=logindata)
 cookies = r.cookies
 r = requests.post(loginurl,headers=header,data=logindata,cookies=cookies)
 cookies = r.cookies
+del logindata
 # choose term
 termurl = 'https://bannerweb.wpi.edu/pls/prod/bwskfshd.P_CrseSchdDetl'
 termdata = {'term_in':201502}
